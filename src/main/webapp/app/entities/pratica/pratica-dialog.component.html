@@ -1,0 +1,49 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPraticaLabel">Create or edit a Pratica</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <npvr-alert-error></npvr-alert-error>
+        <div class="form-group" [hidden]="!pratica.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="pratica.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_numeroPratica">Numero Pratica</label>
+            <input type="text" class="form-control" name="numeroPratica" id="field_numeroPratica"
+                [(ngModel)]="pratica.numeroPratica" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="field_nome"
+                [(ngModel)]="pratica.nome" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_annataViticola">Annata Viticola</label>
+            <select class="form-control" id="field_annataViticola" name="annataViticola" [(ngModel)]="pratica.annataViticolaId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="annataViticolaOption.id" *ngFor="let annataViticolaOption of annataviticolas; trackBy: trackAnnataViticolaById">{{annataViticolaOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_tipoPratica">Tipo Pratica</label>
+            <select class="form-control" id="field_tipoPratica" name="tipoPratica" [(ngModel)]="pratica.tipoPraticaId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="tipoPraticaOption.id" *ngFor="let tipoPraticaOption of tipopraticas; trackBy: trackTipoPraticaById">{{tipoPraticaOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span>Annata Viticolas</span>
+        <button class="btn btn-primary float-right jh-create-entity create-annata-viticola" [routerLink]="['/', { outlets: { popup: ['annata-viticola-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Annata Viticola
+            </span>
+        </button>
+    </h2>
+    <npvr-alert></npvr-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="annataViticolas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Anno</span></th>
+            <th><span>Descrizione</span></th>
+            <th><span>Data Inizio</span></th>
+            <th><span>Data Fine</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let annataViticola of annataViticolas ;trackBy: trackId">
+                <td><a [routerLink]="['../annata-viticola', annataViticola.id ]">{{annataViticola.id}}</a></td>
+                <td>{{annataViticola.anno}}</td>
+                <td>{{annataViticola.descrizione}}</td>
+                <td>{{annataViticola.dataInizio | date:'mediumDate'}}</td>
+                <td>{{annataViticola.dataFine | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../annata-viticola', annataViticola.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'annata-viticola/'+ annataViticola.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'annata-viticola/'+ annataViticola.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

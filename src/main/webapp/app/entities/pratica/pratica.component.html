@@ -1,0 +1,72 @@
+<div>
+    <h2>
+        <span>Praticas</span>
+        <button class="btn btn-primary float-right jh-create-entity create-pratica" [routerLink]="['/', { outlets: { popup: ['pratica-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Pratica
+            </span>
+        </button>
+    </h2>
+    <npvr-alert></npvr-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="praticas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Numero Pratica</span></th>
+            <th><span>Nome</span></th>
+            <th><span>Annata Viticola</span></th>
+            <th><span>Tipo Pratica</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pratica of praticas ;trackBy: trackId">
+                <td><a [routerLink]="['../pratica', pratica.id ]">{{pratica.id}}</a></td>
+                <td>{{pratica.numeroPratica}}</td>
+                <td>{{pratica.nome}}</td>
+                <td>
+                    <div *ngIf="pratica.annataViticolaId">
+                        <a [routerLink]="['../annata-viticola', pratica.annataViticolaId  ]" >{{pratica.annataViticolaId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="pratica.tipoPraticaId">
+                        <a [routerLink]="['../tipo-pratica', pratica.tipoPraticaId  ]" >{{pratica.tipoPraticaId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../pratica', pratica.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'pratica/'+ pratica.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'pratica/'+ pratica.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+
+<div *ngIf="pratica">
+    <h2><span>Pratica</span> {{pratica.id}}</h2>
+    <hr>
+    <npvr-alert-error></npvr-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Numero Pratica</span></dt>
+        <dd>
+            <span>{{pratica.numeroPratica}}</span>
+        </dd>
+        <dt><span>Nome</span></dt>
+        <dd>
+            <span>{{pratica.nome}}</span>
+        </dd>
+        <dt><span>Annata Viticola</span></dt>
+        <dd>
+            <div *ngIf="pratica.annataViticolaId">
+                <a [routerLink]="['/annata-viticola', pratica.annataViticolaId]">{{pratica.annataViticolaId}}</a>
+            </div>
+        </dd>
+        <dt><span>Tipo Pratica</span></dt>
+        <dd>
+            <div *ngIf="pratica.tipoPraticaId">
+                <a [routerLink]="['/tipo-pratica', pratica.tipoPraticaId]">{{pratica.tipoPraticaId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'pratica/'+ pratica.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

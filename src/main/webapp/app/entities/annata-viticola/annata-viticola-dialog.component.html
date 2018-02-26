@@ -1,0 +1,55 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAnnataViticolaLabel">Create or edit a Annata Viticola</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <npvr-alert-error></npvr-alert-error>
+        <div class="form-group" [hidden]="!annataViticola.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="annataViticola.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_anno">Anno</label>
+            <input type="text" class="form-control" name="anno" id="field_anno"
+                [(ngModel)]="annataViticola.anno" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_descrizione">Descrizione</label>
+            <input type="text" class="form-control" name="descrizione" id="field_descrizione"
+                [(ngModel)]="annataViticola.descrizione" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_dataInizio">Data Inizio</label>
+            <div class="input-group">
+                <input id="field_dataInizio" type="text" class="form-control" name="dataInizio" ngbDatepicker  #dataInizioDp="ngbDatepicker" [(ngModel)]="annataViticola.dataInizio"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dataInizioDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_dataFine">Data Fine</label>
+            <div class="input-group">
+                <input id="field_dataFine" type="text" class="form-control" name="dataFine" ngbDatepicker  #dataFineDp="ngbDatepicker" [(ngModel)]="annataViticola.dataFine"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dataFineDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

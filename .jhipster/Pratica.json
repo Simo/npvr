@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "annataViticola",
+            "otherEntityName": "annataViticola",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "tipoPratica",
+            "otherEntityName": "tipoPratica",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "numeroPratica",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180223155708",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "pratica",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "descrizione",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "acronimo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "famiglia",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "validoAl",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180223155307",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "tipo_pratica",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

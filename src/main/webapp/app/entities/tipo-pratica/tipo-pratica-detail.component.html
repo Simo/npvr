@@ -1,0 +1,38 @@
+
+<div *ngIf="tipoPratica">
+    <h2><span>Tipo Pratica</span> {{tipoPratica.id}}</h2>
+    <hr>
+    <npvr-alert-error></npvr-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Descrizione</span></dt>
+        <dd>
+            <span>{{tipoPratica.descrizione}}</span>
+        </dd>
+        <dt><span>Acronimo</span></dt>
+        <dd>
+            <span>{{tipoPratica.acronimo}}</span>
+        </dd>
+        <dt><span>Famiglia</span></dt>
+        <dd>
+            <span>{{tipoPratica.famiglia}}</span>
+        </dd>
+        <dt><span>Valido Al</span></dt>
+        <dd>
+            <span>{{tipoPratica.validoAl | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'tipo-pratica/'+ tipoPratica.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
