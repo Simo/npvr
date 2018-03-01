@@ -1,0 +1,42 @@
+
+<div *ngIf="stato">
+    <h2><span>Stato</span> {{stato.id}}</h2>
+    <hr>
+    <npvr-alert-error></npvr-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Definizione</span></dt>
+        <dd>
+            <span>{{stato.definizione}}</span>
+        </dd>
+        <dt><span>Descrizione</span></dt>
+        <dd>
+            <span>{{stato.descrizione}}</span>
+        </dd>
+        <dt><span>Acronimo</span></dt>
+        <dd>
+            <span>{{stato.acronimo}}</span>
+        </dd>
+        <dt><span>Codice</span></dt>
+        <dd>
+            <span>{{stato.codice}}</span>
+        </dd>
+        <dt><span>Valido Al</span></dt>
+        <dd>
+            <span>{{stato.validoAl | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'stato/'+ stato.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

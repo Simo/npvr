@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "pratica",
+            "otherEntityName": "pratica",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "stato",
+            "otherEntityName": "stato",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dataInizio",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dataFine",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "utente",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20180226100306",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "npvr_stato_prt",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

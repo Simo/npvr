@@ -1,0 +1,46 @@
+
+<div *ngIf="statoPratica">
+    <h2><span>Stato Pratica</span> {{statoPratica.id}}</h2>
+    <hr>
+    <npvr-alert-error></npvr-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Data Inizio</span></dt>
+        <dd>
+            <span>{{statoPratica.dataInizio | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Data Fine</span></dt>
+        <dd>
+            <span>{{statoPratica.dataFine | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Utente</span></dt>
+        <dd>
+            <span>{{statoPratica.utente}}</span>
+        </dd>
+        <dt><span>Pratica</span></dt>
+        <dd>
+            <div *ngIf="statoPratica.praticaId">
+                <a [routerLink]="['/pratica', statoPratica.praticaId]">{{statoPratica.praticaId}}</a>
+            </div>
+        </dd>
+        <dt><span>Stato</span></dt>
+        <dd>
+            <div *ngIf="statoPratica.statoId">
+                <a [routerLink]="['/stato', statoPratica.statoId]">{{statoPratica.statoId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'stato-pratica/'+ statoPratica.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

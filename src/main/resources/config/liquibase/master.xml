@@ -8,7 +8,12 @@
     <include file="config/liquibase/changelog/20180223155111_added_entity_AnnataViticola.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180223155307_added_entity_TipoPratica.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180223155708_added_entity_Pratica.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180226095427_added_entity_Stato.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180226100306_added_entity_StatoPratica.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180226101932_added_entity_IterStep.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180223155708_added_entity_constraints_Pratica.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180226100306_added_entity_constraints_StatoPratica.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180226101932_added_entity_constraints_IterStep.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

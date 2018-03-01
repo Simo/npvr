@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span>Iter Steps</span>
+        <button class="btn btn-primary float-right jh-create-entity create-iter-step" [routerLink]="['/', { outlets: { popup: ['iter-step-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Iter Step
+            </span>
+        </button>
+    </h2>
+    <npvr-alert></npvr-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="iterSteps">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Definizione</span></th>
+            <th><span>Descrizione</span></th>
+            <th><span>Direzione</span></th>
+            <th><span>Stato Partenza</span></th>
+            <th><span>Stato Arrivo</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let iterStep of iterSteps ;trackBy: trackId">
+                <td><a [routerLink]="['../iter-step', iterStep.id ]">{{iterStep.id}}</a></td>
+                <td>{{iterStep.definizione}}</td>
+                <td>{{iterStep.descrizione}}</td>
+                <td>{{iterStep.direzione}}</td>
+                <td>
+                    <div *ngIf="iterStep.statoPartenza">
+                        <a [routerLink]="['../stato', iterStep.statoPartenza?.id ]" >{{iterStep.statoPartenza?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="iterStep.statoArrivo">
+                        <a [routerLink]="['../stato', iterStep.statoArrivo?.id ]" >{{iterStep.statoArrivo?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../iter-step', iterStep.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'iter-step/'+ iterStep.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'iter-step/'+ iterStep.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

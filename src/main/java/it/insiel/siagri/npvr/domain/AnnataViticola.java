@@ -11,7 +11,7 @@ import java.util.Objects;
  * A AnnataViticola.
  */
 @Entity
-@Table(name = "annata_viticola")
+@Table(name = "npvr_annata_viticola")
 public class AnnataViticola implements Serializable {
 
     private static final long serialVersionUID = 1L;

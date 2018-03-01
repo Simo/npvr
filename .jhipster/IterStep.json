@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "statoPartenza",
+            "otherEntityName": "stato",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "statoArrivo",
+            "otherEntityName": "stato",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "definizione",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descrizione",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "direzione",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180226101932",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "npvr_iter_step",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

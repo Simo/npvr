@@ -7,10 +7,10 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A Pratica.
+ * Entità che rappresenta una pratica per NPVR.
  */
 @Entity
-@Table(name = "pratica")
+@Table(name = "npvr_pratica")
 public class Pratica implements Serializable {
 
     private static final long serialVersionUID = 1L;

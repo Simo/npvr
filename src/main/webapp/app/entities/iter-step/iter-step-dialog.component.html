@@ -1,0 +1,54 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myIterStepLabel">Create or edit a Iter Step</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <npvr-alert-error></npvr-alert-error>
+        <div class="form-group" [hidden]="!iterStep.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="iterStep.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_definizione">Definizione</label>
+            <input type="text" class="form-control" name="definizione" id="field_definizione"
+                [(ngModel)]="iterStep.definizione" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_descrizione">Descrizione</label>
+            <input type="text" class="form-control" name="descrizione" id="field_descrizione"
+                [(ngModel)]="iterStep.descrizione" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_direzione">Direzione</label>
+            <input type="number" class="form-control" name="direzione" id="field_direzione"
+                [(ngModel)]="iterStep.direzione" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_statoPartenza">Stato Partenza</label>
+            <select class="form-control" id="field_statoPartenza" name="statoPartenza" [(ngModel)]="iterStep.statoPartenza" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="statoOption.id === iterStep.statoPartenza?.id ? iterStep.statoPartenza : statoOption" *ngFor="let statoOption of statoes; trackBy: trackStatoById">{{statoOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_statoArrivo">Stato Arrivo</label>
+            <select class="form-control" id="field_statoArrivo" name="statoArrivo" [(ngModel)]="iterStep.statoArrivo" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="statoOption.id === iterStep.statoArrivo?.id ? iterStep.statoArrivo : statoOption" *ngFor="let statoOption of statoes; trackBy: trackStatoById">{{statoOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

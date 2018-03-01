@@ -3,8 +3,8 @@
         <span class="hipster img-fluid rounded"></span>
     </div>
     <div class="col-md-9">
-        <h1 class="display-4">Welcome, Java Hipster!</h1>
-        <p class="lead">This is your homepage</p>
+        <h1 class="display-4">Potenziale Viticolo Regionale</h1>
+        <p class="lead">Il software per la gestione delle pratiche autorizzative alla variazione del potenziale viticolo aziendale e al mantenimento dello Schedario viticolo.</p>
 
         <div [ngSwitch]="isAuthenticated()">
             <div class="alert alert-success" *ngSwitchCase="true">
@@ -37,5 +37,6 @@
         <p>
             <span>If you like JHipster, don't forget to give us a star on</span> <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener">GitHub</a>!
         </p>
+        <a routerLink="/pratiche">vai a pratiche</a>
     </div>
 </div>

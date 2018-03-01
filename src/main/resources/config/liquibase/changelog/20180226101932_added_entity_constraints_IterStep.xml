@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity IterStep.
+    -->
+    <changeSet id="20180226101932-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="stato_partenza_id"
+                                 baseTableName="npvr_iter_step"
+                                 constraintName="fk_iter_step_stato_partenza_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="npvr_stato"/>
+
+        <addForeignKeyConstraint baseColumnNames="stato_arrivo_id"
+                                 baseTableName="npvr_iter_step"
+                                 constraintName="fk_iter_step_stato_arrivo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="npvr_stato"/>
+
+    </changeSet>
+</databaseChangeLog>

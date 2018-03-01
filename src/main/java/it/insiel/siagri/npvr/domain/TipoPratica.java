@@ -8,10 +8,16 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * A TipoPratica.
+ * Entità che rappresenta i tipi di pratica che è possibile inserire in NPVR.
+ *
+ * descrizione: è la descrizione estesa dello stato. | => visualizzazione estesa | eg: "Comunicazione di avvenuto estirpo con reimpianto stesso posto"
+ * acronimo: è una sigla per il tipo pratica. | => visualizzazione negli elenchi | eg: "CAESP"
+ * famiglia: è un raggruppamento di un certo tipo di pratiche. | => hanno iter simili | eg: "CAE" - fa parte delle comunicazioni di avvenuto estirpo
+ * validoAl: data di validità della voce | => storicizzazione dell'elenco | eg: se valido = "31/12/9999"
+ *
  */
 @Entity
-@Table(name = "tipo_pratica")
+@Table(name = "npvr_tipo_pratica")
 public class TipoPratica implements Serializable {
 
     private static final long serialVersionUID = 1L;

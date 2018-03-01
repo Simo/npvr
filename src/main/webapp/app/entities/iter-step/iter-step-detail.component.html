@@ -1,0 +1,46 @@
+
+<div *ngIf="iterStep">
+    <h2><span>Iter Step</span> {{iterStep.id}}</h2>
+    <hr>
+    <npvr-alert-error></npvr-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Definizione</span></dt>
+        <dd>
+            <span>{{iterStep.definizione}}</span>
+        </dd>
+        <dt><span>Descrizione</span></dt>
+        <dd>
+            <span>{{iterStep.descrizione}}</span>
+        </dd>
+        <dt><span>Direzione</span></dt>
+        <dd>
+            <span>{{iterStep.direzione}}</span>
+        </dd>
+        <dt><span>Stato Partenza</span></dt>
+        <dd>
+            <div *ngIf="iterStep.statoPartenza">
+                <a [routerLink]="['/stato', iterStep.statoPartenza?.id]">{{iterStep.statoPartenza?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Stato Arrivo</span></dt>
+        <dd>
+            <div *ngIf="iterStep.statoArrivo">
+                <a [routerLink]="['/stato', iterStep.statoArrivo?.id]">{{iterStep.statoArrivo?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'iter-step/'+ iterStep.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

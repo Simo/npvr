@@ -6,6 +6,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { JhiEventManager } from 'ng-jhipster';
 
+import { DataTablesModule } from 'angular-datatables';
+
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
@@ -26,17 +28,20 @@ import {
     PageRibbonComponent,
     ErrorComponent
 } from './layouts';
+import { PraticheModule } from './pratiche/pratiche.module';
 
 @NgModule({
     imports: [
         BrowserModule,
         NpvrAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'npvr', separator: '-'}),
+        DataTablesModule,
         NpvrSharedModule,
         NpvrHomeModule,
         NpvrAdminModule,
         NpvrAccountModule,
         NpvrEntityModule,
+        PraticheModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
