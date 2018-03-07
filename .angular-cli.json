@@ -17,7 +17,7 @@
         "tsconfig": "../../../tsconfig.json",
         "prefix": "npvr",
         "styles": [
-            "content/datatables.net-dt/css/jquery.dataTables.css",
+            "content/css/jquery.dataTables.css",
             "content/css/vendor.css",
             "content/css/global.css"
         ],

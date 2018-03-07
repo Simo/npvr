@@ -32,7 +32,7 @@ spring:
         serialization.indent_output: true
     datasource:
         type: oracle.jdbc.pool.OracleDataSource
-        url: jdbc:oracle:thin:@193.43.179.8:1521:ORCL
+        url: jdbc:oracle:thin:@172.25.96.106:1747:SORA11
         username: fascicolo
         password: fascicolo_s
     jpa:
